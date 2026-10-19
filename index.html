@@ -2,7 +2,6 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <!-- Viewport tag wajib untuk responsive layout di HP/Tab -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nasi Pecel Legendaris Gambringan</title>
     
@@ -82,7 +81,7 @@
             padding: 0 15px;
         }
 
-        /* Layout Grid Dua Kolom untuk Layar Besar (Tablet & Laptop) */
+        /* Layout Grid untuk Tablet & Laptop */
         .grid-layout {
             display: grid;
             grid-template-columns: 1fr;
@@ -108,7 +107,7 @@
             gap: 10px;
         }
 
-        /* Fitur / Keunggulan */
+        /* Fitur & Menu Grid */
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -127,6 +126,39 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .menu-card {
+            background: #fdf2e9;
+            border: 1px dashed #e67e22;
+            padding: 16px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .menu-card i {
+            font-size: 2rem;
+            color: #e67e22;
+            flex-shrink: 0;
+        }
+
+        .menu-card h4 {
+            font-size: 1.05rem;
+            color: var(--dark);
+            margin-bottom: 2px;
+        }
+
+        .menu-card p {
+            font-size: 0.85rem;
+            color: #666;
         }
 
         /* Tombol WA Responsive */
@@ -192,22 +224,10 @@
             font-size: 0.85rem;
         }
 
-        /* ========================================== */
-        /* MEDIA QUERIES (Perilaku Layar Tablet & Laptop) */
-        /* ========================================== */
-
-        /* Layar Tablet & Laptop (Lebar min 768px) */
+        /* Responsive Breakpoints */
         @media (min-width: 768px) {
             .hero {
                 padding: 60px 20px 80px 20px;
-            }
-
-            .grid-layout {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .full-width {
-                grid-column: span 2;
             }
 
             .contact-group {
@@ -233,7 +253,7 @@
         <div class="grid-layout">
 
             <!-- Card Keunggulan -->
-            <div class="card full-width">
+            <div class="card">
                 <div class="card-title">
                     <i class="fa-solid fa-utensils" style="color: var(--primary);"></i>
                     Cita Rasa Khas
@@ -248,24 +268,48 @@
                 </div>
             </div>
 
+            <!-- Card Pesanan Tambahan (Gorengan & Baceman) -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-bell-concierge" style="color: #e67e22;"></i>
+                    Menerima Pesanan Lauk Tambahan
+                </div>
+                <div class="menu-grid">
+                    <div class="menu-card">
+                        <i class="fa-solid fa-drumstick-bite"></i>
+                        <div>
+                            <h4>Aneka Baceman</h4>
+                            <p>Tahu, tempe, & baceman khas yang manis gurih meresap.</p>
+                        </div>
+                    </div>
+                    <div class="menu-card">
+                        <i class="fa-solid fa-bowl-food"></i>
+                        <div>
+                            <h4>Aneka Gorengan</h4>
+                            <p>Gorengan hangat, renyah, dan cocok jadi pendamping pecel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Card Pemesanan WhatsApp -->
-            <div class="card full-width">
+            <div class="card">
                 <div class="card-title">
                     <i class="fa-brands fa-whatsapp" style="color: #25d366; font-size: 1.4rem;"></i>
                     Pesan Sekarang via WhatsApp
                 </div>
                 <div class="contact-group">
-                    <a href="https://wa.me/628122564256" target="_blank" class="btn-wa">
+                    <a href="https://wa.me/628122564256?text=Halo%20Bu%20Erlin,%20saya%20mau%20pesan%20Nasi%20Pecel" target="_blank" class="btn-wa">
                         <i class="fa-brands fa-whatsapp fa-lg"></i> Bu Erlin (0812-2564-256)
                     </a>
-                    <a href="https://wa.me/6281347401753" target="_blank" class="btn-wa">
+                    <a href="https://wa.me/6281347401753?text=Halo%20Bu%20Erni,%20saya%20mau%20pesan%20Nasi%20Pecel" target="_blank" class="btn-wa">
                         <i class="fa-brands fa-whatsapp fa-lg"></i> Bu Erni (0813-4740-1753)
                     </a>
                 </div>
             </div>
 
             <!-- Card Lokasi -->
-            <div class="card full-width">
+            <div class="card">
                 <div class="card-title">
                     <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
                     Lokasi Warung
