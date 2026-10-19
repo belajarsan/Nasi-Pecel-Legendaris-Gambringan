@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <!-- Viewport tag wajib untuk responsive layout di HP/Tab -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nasi Pecel Legendaris Gambringan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary: #d90429;
+            --primary-dark: #b1001c;
+            --secondary: #ffb703;
+            --dark: #1d3557;
+            --light-bg: #f4f6f8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-bg);
+            color: #333;
+            line-height: 1.5;
+            padding-bottom: 40px;
+        }
+
+        /* Hero / Header Responsive */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px 60px 20px;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }
+
+        .badge-tagline {
+            display: inline-block;
+            background-color: var(--secondary);
+            color: #000;
+            font-weight: 800;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Container Layout Responsive */
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: -30px auto 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Layout Grid Dua Kolom untuk Layar Besar (Tablet & Laptop) */
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        /* Card Component */
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            height: 100%;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Fitur / Keunggulan */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 12px;
+        }
+
+        .feature-item {
+            background-color: #fff9db;
+            border: 1px solid #ffe066;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 700;
+            color: #d9480f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        /* Tombol WA Responsive */
+        .contact-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background-color: #25d366;
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 1rem;
+            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.25);
+            transition: all 0.2s ease;
+            text-align: center;
+        }
+
+        .btn-wa:hover {
+            background-color: #1eb854;
+            transform: translateY(-2px);
+        }
+
+        /* Alamat */
+        .address-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background-color: #f8f9fa;
+            padding: 16px;
+            border-radius: 12px;
+            border-left: 5px solid var(--primary);
+        }
+
+        .address-box i {
+            font-size: 1.8rem;
+            color: var(--primary);
+            flex-shrink: 0;
+        }
+
+        .address-text h4 {
+            font-size: 1rem;
+            color: var(--dark);
+        }
+
+        .address-text p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* ========================================== */
+        /* MEDIA QUERIES (Perilaku Layar Tablet & Laptop) */
+        /* ========================================== */
+
+        /* Layar Tablet & Laptop (Lebar min 768px) */
+        @media (min-width: 768px) {
+            .hero {
+                padding: 60px 20px 80px 20px;
+            }
+
+            .grid-layout {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .full-width {
+                grid-column: span 2;
+            }
+
+            .contact-group {
+                flex-direction: row;
+            }
+
+            .btn-wa {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Banner -->
+    <header class="hero">
+        <span class="badge-tagline"><i class="fa-solid fa-fire"></i> Lezat, Bergizi, Bikin Nagih!</span>
+        <h1>Nasi Pecel Legendaris<br>Gambringan</h1>
+        <p>Pecel Sederhana, Rasa Luar Biasa!</p>
+    </header>
+
+    <div class="container">
+        <div class="grid-layout">
+
+            <!-- Card Keunggulan -->
+            <div class="card full-width">
+                <div class="card-title">
+                    <i class="fa-solid fa-utensils" style="color: var(--primary);"></i>
+                    Cita Rasa Khas
+                </div>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <i class="fa-solid fa-pepper-hot"></i> Bumbu Pecel Gambringan
+                    </div>
+                    <div class="feature-item">
+                        <i class="fa-solid fa-cookie-bite"></i> Peyek Gurih & Renyah
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card Pemesanan WhatsApp -->
+            <div class="card full-width">
+                <div class="card-title">
+                    <i class="fa-brands fa-whatsapp" style="color: #25d366; font-size: 1.4rem;"></i>
+                    Pesan Sekarang via WhatsApp
+                </div>
+                <div class="contact-group">
+                    <a href="https://wa.me/628122564256" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp fa-lg"></i> Bu Erlin (0812-2564-256)
+                    </a>
+                    <a href="https://wa.me/6281347401753" target="_blank" class="btn-wa">
+                        <i class="fa-brands fa-whatsapp fa-lg"></i> Bu Erni (0813-4740-1753)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Card Lokasi -->
+            <div class="card full-width">
+                <div class="card-title">
+                    <i class="fa-solid fa-location-dot" style="color: var(--primary);"></i>
+                    Lokasi Warung
+                </div>
+                <div class="address-box">
+                    <i class="fa-solid fa-map-pin"></i>
+                    <div class="address-text">
+                        <h4>Nasi Pecel Gambringan</h4>
+                        <p>Jl. Arteri Soekarno Hatta 199A, Palebon, Semarang</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        &copy; Nasi Pecel Legendaris Gambringan - Semarang
+    </footer>
+
+</body>
+</html>
